@@ -1,0 +1,54 @@
+#include <bits/stdc++.h>
+using namespace std;
+class node{
+    public:
+    int data;
+    node *next;
+};
+// At the fornt of linked lis;
+node *removefirst(node *head){
+
+
+    if(head==NULL){
+        return NULL;
+    }    
+    node *temp=head;
+    head=temp->next;
+    delete temp;
+    return head;
+}
+
+
+   void print(node *n)
+   {
+       while(n!=NULL)
+       {
+           cout<<n->data<<"->";   
+           n=n->next;
+       }
+       cout<<"NULL"<<endl;
+   }
+
+int main()
+{
+  
+     
+     node *head=NULL;
+      head=new node();
+      node *second=new node();
+      node *third=new node();
+      
+      head->data=2;
+      head->next=second;
+      second->data=4;
+      second->next=third;
+      third->data=6;
+      third->next=NULL;
+      //
+      print(head);
+      cout<<"After removefirst  element:"<<endl;
+      head=removefirst(head);
+      print(head);
+     
+      return 0;
+    }
