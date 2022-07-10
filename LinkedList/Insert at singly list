@@ -1,0 +1,91 @@
+#include <bits/stdc++.h>
+using namespace std;
+class node{
+    public:
+    int data;
+    node *next;
+};
+void insertatspeceficposition(int n,int val,node *head)
+{
+  /// Insert element at spefic postion
+      node *temp1=new node();
+      temp1->data=val;
+      if(n==1)
+      {     
+        temp1->next=head;
+        head=temp1;
+        return;
+      }
+      node*temp2=head;
+       for(int i=0;i<n-2;++i)
+       {
+        temp2=temp2->next;
+       }
+       temp1->next=temp2->next;
+       temp2->next=temp1;
+}
+void insertiatfront(node **head,int val)
+{
+  // Insert element at front
+     node *temp=new node();
+     temp->data=val;
+     temp->next=(*head);
+     (*head)=temp;
+}
+void insertattail(node *head,int val)
+{
+  // Insert eleemnt at tail
+     node *newnode=new node();
+     newnode->data=val; node *temp=head;
+    while(temp->next!=NULL)
+    {
+      temp=temp->next;
+    }
+    newnode->data=val;
+    temp->next=newnode;
+    newnode->next=NULL;
+
+}
+   void print(node *n)
+   {
+       while(n!=NULL)
+       {
+           cout<<n->data<<"->";   
+           n=n->next;
+       }
+       cout<<"NULL"<<endl;
+   }
+
+int main()
+{
+  #ifndef ONLINE_JUDGE
+      freopen("input.txt","r",stdin);
+      freopen("output.txt","w",stdout);
+      #endif
+      
+     
+     node *head=NULL;
+      head=new node();
+      node *second=new node();
+      node *third=new node();
+      
+      head->data=2;
+      head->next=second;
+      second->data=4;
+      second->next=third;
+      third->data=6;
+      third->next=NULL;
+      print(head);
+      cout<<"After insert element at the front:"<<endl;
+      insertiatfront(&head,1);
+      print(head);
+     cout<<"After insert element at the tail:"<<endl;
+     insertattail(head,9);
+     print(head);
+     cout<<"Insert element at spefic position"<<endl;
+     insertatspeceficposition(4,87,head);
+     print(head);
+   
+     
+      return 0;
+}
