@@ -5,6 +5,44 @@ class node{
     int data;
     node *next;
 };
+// Remove at the spefic position
+void removelistend(node *head){
+    
+     node *temp,*prev;
+     if(head==0)
+     {
+         cout<<"The list is empty."<<endl;
+     }
+     else{
+         prev=head;
+         temp=head;
+         while(temp->next!=NULL){
+             prev=temp;
+             temp=temp->next;
+         }
+         prev->next=NULL;
+         delete temp;
+     }
+      
+    
+    
+}
+void removelistspeficposition(int pos,node *head){
+    
+      node *temp=head;
+      if(pos==1){
+          head=temp->next;
+          delete temp;
+          return;
+      }
+      node *temp1=head;
+        for(int i=0;i<pos-2;++i){
+            temp1=temp1->next;
+        }
+        node *temp2=temp1->next;
+        temp1->next=temp2->next;
+        delete temp2;
+}
 // Remove element at the end
 void removelistend(node *head){
     
