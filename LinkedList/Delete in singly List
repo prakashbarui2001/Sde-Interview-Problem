@@ -5,6 +5,28 @@ class node{
     int data;
     node *next;
 };
+// Remove element at the end
+void removelistend(node *head){
+    
+     node *temp,*prev;
+     if(head==0)
+     {
+         cout<<"The list is empty."<<endl;
+     }
+     else{
+         prev=head;
+         temp=head;
+         while(temp->next!=NULL){
+             prev=temp;
+             temp=temp->next;
+         }
+         prev->next=NULL;
+         delete temp;
+     }
+      
+    
+    
+}
 // At the fornt of linked lis;
 node *removefirst(node *head){
 
