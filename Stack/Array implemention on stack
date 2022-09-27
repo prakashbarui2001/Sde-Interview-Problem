@@ -76,3 +76,62 @@ int main(){
     
     
 }
+///*********************************************************************************************************************************************************************
+
+
+
+
+
+#include<bits/stdc++.h>
+using namespace std;
+int arr[5],size=5,top=-1;
+void push(int x){
+    if(top>=size-1){
+        cout<<"The stack is overflow"<<endl;
+    }
+    else{
+        top++;
+        arr[top]=x;
+    }
+}
+int pop(){
+    if(top==-1) return -1;
+    else{
+        int x=arr[top];
+        top--;
+        return x;
+    }
+}
+int SizeofStack(){
+    return top+1;
+}
+int Topelelement(){
+    return arr[top];
+}
+void display(){
+    cout<<"My current stack:"<<endl;
+    if(top>=0){
+        while(top>=0){
+            cout<<arr[top]<<endl;
+            top--;
+        }
+    }
+}
+int main(){
+    
+    push(1);
+    push(2);
+    push(3);
+    push(4);
+    push(5);
+    //push(6);
+    pop();
+      pop();
+    //display();
+    cout<<"Size of stack:"<<SizeofStack()<<endl;
+      pop();
+    cout<<"Topelelement of stack:"<<Topelelement()<<endl;
+    display();
+    
+    
+}
