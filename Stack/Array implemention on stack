@@ -1,0 +1,78 @@
+#include<bits/stdc++.h>
+using namespace std;
+class Stack{
+    
+      int top;
+      int *arr;
+      int size;
+      public:
+      Stack(){
+          
+          top=-1;
+          size=5;
+          arr=new int[size];
+      }
+      void push(int x){
+          
+          if(top>=size-1){
+              cout<<"Stack over flow";
+          }
+          else{
+              top++;
+              arr[top]=x;
+          }
+      }
+      int pop(){
+          if(top==-1)
+          return -1;
+          int x=arr[top];
+          top--;
+          return x;
+      }
+      int Size(){
+          return top+1;
+      }
+      int Top(){
+          return arr[top];
+      }
+      bool isempty(){
+          if(top==-1){
+              return true;
+          }
+          else{
+              return false;
+          }
+      }
+      void display(){
+          cout<<"My stack is:"<<endl;
+          if(top>=0){
+              for(int i=top;i>=0;--i){
+                  cout<<arr[i]<<endl;
+              }
+          }
+          else{
+              cout<<"empty";
+          }
+      }
+};
+int main(){
+ 
+     Stack s;
+    s.push(1);
+    s.push(2);
+    s.push(3);
+     s.display();
+    s.pop();
+     s.pop();
+    s.pop();
+    s.pop();
+     //s.display();
+     if(s.isempty()==true){
+         cout<<"The stack is empty";
+     }
+     else{
+         cout<<"No";
+     }
+    
+    
+}
