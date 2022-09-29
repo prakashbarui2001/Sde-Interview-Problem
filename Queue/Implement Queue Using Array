@@ -1,0 +1,66 @@
+#include<bits/stdc++.h>
+using namespace std;
+int n=5,arr[5],front=-1,rare=-1,count=0;
+void pop(){
+    
+    if(front==-1 || front>rare){
+        cout<<"There is no element is Queue"<<endl;
+        
+    }
+    
+    front++;
+  
+}
+void peek(){
+    
+    cout<<arr[front];
+}
+bool isempty(){
+    if(front==-1 || front>rare){
+        return true;
+        
+    }
+    return false;
+}
+void push(int x){
+    
+       if(rare==n-1){
+           cout<<"Queue i totaly full"<<endl;
+           return;
+       }
+       rare++;
+       arr[rare]=x;
+       if(front==-1){
+           front++;
+       
+       }
+}
+
+void display(){
+    if(front==-1){
+        cout<<"The queue is empty"<<endl;
+    }
+    else{
+        
+        for(int i=front;i<=rare;++i){
+            cout<<arr[i]<<" ";
+        }
+    }
+}
+int main(){
+    push(12);
+    push(13);
+    push(14);
+    push(15);
+    pop(); pop(); pop(); 
+    if(isempty()==true){
+        cout<<"The queue is empty."<<endl;
+        
+    }
+  
+    display();
+   //peek();
+  // size();
+    
+    
+}
