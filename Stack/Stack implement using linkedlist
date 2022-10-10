@@ -1,0 +1,58 @@
+#include <iostream>
+using namespace std;
+class Node{
+    public:
+    int data;
+    Node *link;
+    
+    
+};
+Node *top;
+void display(){
+    
+      if(top==NULL){
+          cout<<"The stack is underflow"<<endl;
+          return;
+      }
+      else{
+          
+          while(top!=NULL){
+              cout<<top->data<<" ";
+              top=top->link;
+          }
+      }
+}
+void pop(){
+    
+      if(top==NULL){
+          cout<<"The stack is empty."<<endl;
+          return;
+      }
+      else{
+      Node *temp=top;
+      top=top->link;
+      delete temp;
+      }
+}
+void push(int val){
+    
+      Node *temp=new Node() ;
+      if(!temp){
+          cout<<"Stack is over flow"<<endl;
+          return;
+      }
+      temp->data=val;
+      temp->link=top;
+      top=temp;
+}
+int main()
+{
+    push(1);
+    push(2);
+    push(3);
+    push(4);
+    pop();
+    display();
+
+    return 0;
+}
