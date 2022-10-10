@@ -1,0 +1,76 @@
+#include<bits/stdc++.h>
+using namespace std;
+class Node{
+  public:
+  int data;
+  Node *next;
+  Node(int val){
+      
+      data=val;
+      next=NULL;
+  }
+    
+};
+class Queue{
+    
+       Node *front,*rare;
+       public:
+       Queue(){
+           front=NULL,rare=NULL;
+           
+       }
+       void push(int x){
+           
+           Node *temp=new Node(x);
+           //temp->data=x;
+           if(front==NULL){
+               front=temp;
+               rare=temp;
+               return;
+           }
+           rare->next=temp;
+           rare=temp;
+       }
+       
+       void pop(){
+           
+           if(front==NULL){
+               cout<<"The list is empty"<<endl;
+               return;
+           }
+           Node *temp=front;
+           front=front->next;
+           delete temp;
+       }
+       int peek(){
+           
+           return front->data;
+       }
+       bool empty(){
+           
+           if(front==NULL){
+               return true;
+           }
+           return false;
+       }
+       void display(){
+           
+           while(front!=NULL){
+               cout<<front->data<<" ";
+               front=front->next;
+           }
+       }
+};
+
+int main(){
+    Queue q;
+    q.push(1);
+    q.push(2);
+    q.push(3);
+    q.push(4);
+   /* q.pop();
+    cout<<q.peek()<<" ";
+    */
+    q.display();
+    
+}
