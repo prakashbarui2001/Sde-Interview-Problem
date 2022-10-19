@@ -1,0 +1,80 @@
+
+class Solution {
+public:
+        bool isvalid(int i,int j,int n,int m,vector<vector<int>>& arr){
+            
+            if(i>=0 && i<n && j>=0 && j<m && arr[i][j]==1){
+                return true;
+            }
+            return false;
+        }
+    int orangesRotting(vector<vector<int>>& arr) {
+        int n=arr.size();
+        int m=arr[0].size();
+        int fresh=0;
+        int time=0;
+        queue<pair<int,int>>q;
+        for(int i=0;i<n;++i){
+            for(int j=0;j<m;++j){
+                if(arr[i][j]==2){
+                    // push value into the queue;
+                    q.push({i,j});
+                }
+                else if(arr[i][j]==1){
+                    fresh++;
+                }
+            }
+        }
+        if(fresh==0){
+            return 0;
+        }
+        // start bfs travershal
+        
+        while(!q.empty()){
+            
+              int size_q=q.size();
+              int temp=0;
+              while(size_q!=0){
+                  
+                    pair<int,int>p=q.front();
+                    q.pop();
+                    int x1=p.first;
+                    int y1=p.second;
+                    int ax[4]={1,-1,0,0};
+                    int ay[4]={0,0,1,-1};
+                    for(int i=0;i<4;++i){
+                        
+                         int x=x1+ax[i];
+                         int y=y1+ay[i];
+                         if(isvalid(x,y,n,m,arr)){
+                             
+                             temp++;
+                             q.push({x,y});
+                             arr[x][y]=2;
+                         
+                        }
+                    }
+                    size_q--;
+              }
+              if(temp!=0){
+                  time++;
+              }
+              
+        }
+        // we checked if any fresh oranges are still there
+        for(int i=0;i<n;++i){
+            for(int j=0;j<m;++j){
+                
+                else if(arr[i][j]==1){
+                  time=0;
+                  break;
+                }
+            }
+        }
+        
+        
+        
+        return (time==0) ? -1: time;
+         
+    }
+};
