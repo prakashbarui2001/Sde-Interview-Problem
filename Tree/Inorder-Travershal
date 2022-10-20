@@ -1,0 +1,42 @@
+/**
+    using recursion
+ */
+#include<bits/stdc++.h>
+using namespace std;
+class node{
+    public:
+    int data;
+    node *left;
+    node *right;
+    node(int x){
+        data=x;
+        left=NULL;
+        right=NULL;
+    }
+};
+void Inoder(node *root){
+    
+      if(root==NULL)
+      return;
+      Inoder(root->left);
+      cout<<root->data<<" ";
+      Inoder(root->right);
+      
+}
+int main(){
+     /* Constructed binary tree is
+              1
+            /   \
+          2      3
+        /  \    /
+      4     5   6
+     output = 4->2->5->1->3  */  
+    node *root=new node(1);
+    root->left=new node(2);
+    root->right=new node(3);
+    root->left->left=new node(4);
+     root->left->right=new node(5);
+     root->right->left=new node(6);
+     Inoder(root);
+    
+}
