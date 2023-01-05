@@ -1,0 +1,26 @@
+     
+    . Method of LeetCoding-  
+       
+     1.If a  array is sorted then -
+          i)-Binarysearch ii) two pointer
+     2.If asked all of the permutainon/subset then
+           i) Backtracking
+     3.If given is tree
+         i) Dfs ii)bfs
+     4. If a graph
+         i)Dfs ii)Bfs
+      5.If given a linked list-
+         i)two pinter
+       6.If recursion is banned
+           i)stack
+        7.If must-solve in then
+            i) swap-corresponding values
+             ii) store one or more difffrenet values int the same pointer
+         8.If asked for maximum /minimum subarray /subset/ option then
+              - Dynamic programing
+            9. If asked for top/least k iteams then
+                  -heap
+             10.If asked common string
+                  i)Map ii)Trie
+         
+         
